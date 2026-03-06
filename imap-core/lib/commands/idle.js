@@ -4,12 +4,20 @@ module.exports = {
     state: ['Authenticated', 'Selected'],
 
     handler(command, callback, next) {
+        let timedOut = false;
+
         let idleTimeout = setTimeout(() => {
+            timedOut = true;
+            this.idling = false;
+
             if (typeof this._server.onIdleEnd === 'function') {
                 this._server.onIdleEnd(this.selected && this.selected.mailbox, this.session);
             }
-            this.send('* BYE IDLE terminated');
-            setImmediate(() => this.close());
+
+            callback(null, {
+                response: 'OK',
+                message: 'IDLE terminated'
+            });
         }, this._server.options.idleTimeout || 30 * 60 * 1000);
 
         this._nextHandler = (token, next) => {
@@ -17,6 +25,11 @@ module.exports = {
             this.idling = false;
             clearTimeout(idleTimeout);
             next(); // keep the parser flowing
+
+            if (timedOut) {
+                // IDLE was already ended by timeout, silently consume the DONE
+                return;
+            }
 
             if (typeof this._server.onIdleEnd === 'function') {
                 this._server.onIdleEnd(this.selected && this.selected.mailbox, this.session);
