@@ -52,27 +52,27 @@ module.exports = {
             }
 
             // * QUOTA "" (STORAGE 220676 15728640)
+            let quotaList = data.quota
+                ? [
+                      {
+                          type: 'atom',
+                          value: 'STORAGE'
+                      },
+                      {
+                          type: 'atom',
+                          value: String(Math.ceil((Number(data.storageUsed) || 0) / 1024))
+                      },
+                      {
+                          type: 'atom',
+                          value: String(Math.ceil((Number(data.quota) || 0) / 1024))
+                      }
+                  ]
+                : [];
             this.send(
                 imapHandler.compiler({
                     tag: '*',
                     command: 'QUOTA',
-                    attributes: [
-                        data.root || '',
-                        [
-                            {
-                                type: 'atom',
-                                value: 'STORAGE'
-                            },
-                            {
-                                type: 'atom',
-                                value: String(Math.ceil((Number(data.storageUsed) || 0) / 1024))
-                            },
-                            {
-                                type: 'atom',
-                                value: String(Math.ceil((Number(data.quota) || 0) / 1024))
-                            }
-                        ]
-                    ]
+                    attributes: [data.root || '', quotaList]
                 })
             );
 
