@@ -183,7 +183,7 @@ module.exports = {
             this.send('* 0 RECENT');
 
             // * OK [HIGHESTMODSEQ 123]
-            if ('modifyIndex' in mailboxData && Number(mailboxData.modifyIndex)) {
+            if ('modifyIndex' in mailboxData) {
                 this.send(
                     imapHandler.compiler({
                         tag: '*',

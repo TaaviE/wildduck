@@ -117,6 +117,9 @@ module.exports = {
 
             if (param.value.toUpperCase() === 'MODSEQ') {
                 modseqExist = true;
+                if (!this.selected.condstoreEnabled) {
+                    this.condstoreEnabled = this.selected.condstoreEnabled = true;
+                }
             }
 
             if (param.value.toUpperCase() === 'BODYSTRUCTURE') {
