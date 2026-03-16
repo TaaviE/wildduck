@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.46.25](https://github.com/zone-eu/wildduck/compare/v1.46.24...v1.46.25) (2026-03-12)
+
+
+### Bug Fixes
+
+* fix rfc-2231 regex (multi digit continuation), add tests ([#1020](https://github.com/zone-eu/wildduck/issues/1020)) ([420c1e2](https://github.com/zone-eu/wildduck/commit/420c1e21f92c20bafd63440dc3cd19d3f8d0a8d0))
+* variable typo fix ([a4dafca](https://github.com/zone-eu/wildduck/commit/a4dafca4cdf6b41a3f8d8787dcf0cf4caf94b6d8))
+* ZMS-16: implement message deduplication on MX receive ([#1000](https://github.com/zone-eu/wildduck/issues/1000)) ([6a836b8](https://github.com/zone-eu/wildduck/commit/6a836b825f3e3583b812e8d501a2e680682d5055))
+* ZMS-19: Improve gelf error logging ([#1009](https://github.com/zone-eu/wildduck/issues/1009)) ([bf916eb](https://github.com/zone-eu/wildduck/commit/bf916ebb4b77a680eb4b4821b4d6f186cf2c2d57))
+* ZMS-2: Make imapcommand error logs less critical and without stack trace ([#1024](https://github.com/zone-eu/wildduck/issues/1024)) ([82f9c1a](https://github.com/zone-eu/wildduck/commit/82f9c1af7a758e5c7219864ed9433aa814e111ae))
+* ZMS-26: On move fetch target mailbox's user only one ([#1022](https://github.com/zone-eu/wildduck/issues/1022)) ([c195fc4](https://github.com/zone-eu/wildduck/commit/c195fc4755a82ee56c3c254cdab7e57585b2cdfb))
+* ZMS-29: Various IMAP fixes ([#1023](https://github.com/zone-eu/wildduck/issues/1023)) ([dd3b927](https://github.com/zone-eu/wildduck/commit/dd3b92720621faf35b99d62723d18f87efac2cc6))
+* ZMS-30: Update verification results return schema ([#1025](https://github.com/zone-eu/wildduck/issues/1025)) ([a0c0636](https://github.com/zone-eu/wildduck/commit/a0c0636ad7361c4ae54df9ffe0c5b117adf8f6e1))
+
+## [1.46.24](https://github.com/zone-eu/wildduck/compare/v1.46.23...v1.46.24) (2026-03-06)
+
+
+### Bug Fixes
+
+* [#86](https://github.com/zone-eu/wildduck/issues/86)c89t0yc: Remove --platform=${BUILDPLATFORM} from Dockerfile ([#1004](https://github.com/zone-eu/wildduck/issues/1004)) ([ad1c444](https://github.com/zone-eu/wildduck/commit/ad1c444d73b5a1102bb2b2cb1389147aac5fe0fb))
+* ZMS-23: messageHandler delAsync add subject to archived log ([#1012](https://github.com/zone-eu/wildduck/issues/1012)) ([1634f49](https://github.com/zone-eu/wildduck/commit/1634f4911c522b9e9e442d49571c771cc17759b6))
+* ZMS-24: small messages search fixes ([#1014](https://github.com/zone-eu/wildduck/issues/1014)) ([4b91116](https://github.com/zone-eu/wildduck/commit/4b91116759648ebc714f718c3a1dc5514caf2565))
+* ZMS-27: when creating thread use $literal for subject ([#1017](https://github.com/zone-eu/wildduck/issues/1017)) ([6efc5a4](https://github.com/zone-eu/wildduck/commit/6efc5a4543527dbc3ff4856949a91260037f8255))
+
 ## [1.46.23](https://github.com/zone-eu/wildduck/compare/v1.46.22...v1.46.23) (2026-02-25)
 
 
